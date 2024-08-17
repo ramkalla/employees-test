@@ -3,8 +3,8 @@ package com.employees.test.controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,12 +56,11 @@ public class EmployeeController {
 	@Parameter(name = "email", description = "empEmail is required", required = false, in = ParameterIn.QUERY)
 	public ResponseEntity<ResponsedataModel> getEmployees(
 			@PathVariable(value = "empID", required = true) String employeeID,
-			@RequestParam(value = "email", required = false) String email
-			) throws InterruptedException {
+			@RequestParam(value = "email", required = false) String email) throws InterruptedException {
 		try {
 			log.info("employee id ==> " + StringEscapeUtils.escapeJava(employeeID));
 			log.info("employee email ==> " + StringEscapeUtils.escapeJava(email));
-
+			
 			Optional<List<Employee>> employeeData;
 			if (StringUtils.isEmpty(email)) {
 				Optional<Employee> emp = employeeService.getEmployeeByID(Integer.valueOf(employeeID));

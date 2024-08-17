@@ -22,7 +22,7 @@ import jakarta.persistence.TemporalType;
  * 
  */
 @Entity
-@Table(name="employee_phones")
+@Table(name="employee_phones",schema = "dbs_sys")
 @NamedQuery(name="EmployeePhone.findAll", query="SELECT e FROM EmployeePhone e")
 public class EmployeePhone implements Serializable {
 	private static final long serialVersionUID = 1L;

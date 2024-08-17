@@ -18,7 +18,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name="employees")
+@Table(name="employees",schema = "dbs_sys")
 @NamedQuery(name="Employee.findAll", query="SELECT e FROM Employee e")
 public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
